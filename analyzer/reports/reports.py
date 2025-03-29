@@ -458,7 +458,7 @@ class MajorReport(MultipleFilesReport):
 
         for index, row in df.iterrows():
             mutant = MajorMutant.from_series(row)
-            cls = mutant.signature.split("@")[0]  # get the left part of class@method
+            cls = str(mutant.signature).split("@")[0]  # ensure signature is a string
             cls = cls.split("$")[0]  # get the left part of class$subclass
             classes.append(cls)
             if mutant.status == "LIVE":

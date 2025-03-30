@@ -214,7 +214,7 @@ class PitMutant(Mutant):
         mutant.mutator = element.find("mutator").text
         mutant.description = element.find("description").text
 
-        indexes_element = element.find("indexes")  #For PIT 1.9.0
+        indexes_element = element.find("indexes")  # For PIT 1.9.0
         if indexes_element is not None:
             index_element = indexes_element.find("index")
             if index_element is not None and index_element.text is not None:
@@ -224,6 +224,14 @@ class PitMutant(Mutant):
         else:
             raise ValueError("Missing <indexes> tag in XML")
 
-        mutant.block = int(element.find("block").text)
+        blocks_element = element.find("blocks")  # For PIT 1.9.0
+        if blocks_element is not None:
+            block_element = blocks_element.find("block")
+            if block_element is not None and block_element.text is not None:
+                mutant.block = int(block_element.text)
+            else:
+                raise ValueError("Missing or empty <block> tag in XML")
+        else:
+            raise ValueError("Missing <blocks> tag in XML")
 
         return mutant

@@ -449,7 +449,7 @@ class MajorReport(MultipleFilesReport):
         killed_mutants = df.loc[df.index.difference(live_mutants.index)]
         live_count = len(live_mutants)
         killed_count = len(killed_mutants)
-        #assert len(df) == live_count + killed_count
+        assert len(df) == live_count + killed_count
 
         MajorMutant.reset_counter()
         self.live_mutants = []
@@ -458,7 +458,7 @@ class MajorReport(MultipleFilesReport):
 
         for index, row in df.iterrows():
             mutant = MajorMutant.from_series(row)
-            cls = str(mutant.signature).split("@")[0]  # ensure signature is a string
+            cls = mutant.signature.split("@")[0]  # get the left part of class@method
             cls = cls.split("$")[0]  # get the left part of class$subclass
             classes.append(cls)
             if mutant.status == "LIVE":

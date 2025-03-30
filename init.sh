@@ -92,6 +92,37 @@ main() {
 
     ################################################################################
     #
+    # Setup Junit libs
+    #
+    echo
+    echo "Setting up Junit libs ... "
+
+    JUNIT_VERSION="4.12"
+    JUNIT_JAR="junit-$JUNIT_VERSION.jar"
+    JUNIT_URL="https://repo1.maven.org/maven2/junit/junit/$JUNIT_VERSION/$JUNIT_JAR"
+
+    JUNIT_JUPITER_VERSION="5.8.2"
+    JUNIT_JUPITER_API_JAR="junit-jupiter-api-$JUNIT_JUPITER_VERSION.jar"
+    JUNIT_JUPITER_ENGINE_JAR="junit-jupiter-engine-$JUNIT_JUPITER_VERSION.jar"
+    JUNIT_VINTAGE_ENGINE_JAR="junit-vintage-engine-$JUNIT_JUPITER_VERSION.jar"
+    JUNIT_JUPITER_API_URL="https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/$JUNIT_JUPITER_VERSION/$JUNIT_JUPITER_API_JAR"
+    JUNIT_JUPITER_ENGINE_URL="https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-engine/$JUNIT_JUPITER_VERSION/$JUNIT_JUPITER_ENGINE_JAR"
+    JUNIT_VINTAGE_ENGINE_URL="https://repo1.maven.org/maven2/org/junit/vintage/junit-vintage-engine/$JUNIT_JUPITER_VERSION/$JUNIT_VINTAGE_ENGINE_JAR"
+
+    JUNIT_ADDONS_VERSION="1.4"
+    JUNIT_ADDONS_JAR="junit-addons-$JUNIT_ADDONS_VERSION.jar"
+    JUNIT_ADDONS_URL="https://repo1.maven.org/maven2/junit-addons/junit-addons/$JUNIT_ADDONS_VERSION/$JUNIT_ADDONS_JAR"
+
+    cd "$MUTOOLS" && mkdir -p lib \
+                && download_url $JUNIT_URL && mv $JUNIT_JAR lib/ \
+                && download_url $JUNIT_ADDONS_URL && mv $JUNIT_ADDONS_JAR lib/ \
+                && download_url $JUNIT_JUPITER_API_URL && mv $JUNIT_JUPITER_API_JAR lib/ \
+                && download_url $JUNIT_JUPITER_ENGINE_URL && mv $JUNIT_JUPITER_ENGINE_JAR lib/ \
+                && download_url $JUNIT_VINTAGE_ENGINE_URL && mv $JUNIT_VINTAGE_ENGINE_JAR lib/
+
+
+    ################################################################################
+    #
     # Setup PIT
     #
     echo

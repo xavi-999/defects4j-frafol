@@ -432,6 +432,7 @@ class MajorReport(MultipleFilesReport):
             "To",
             "Signature",
             "LineNumber",
+            "LineBuffer",
             "Description",
         ]
         mutants_df = pd.read_csv(
@@ -444,11 +445,19 @@ class MajorReport(MultipleFilesReport):
             kill_df = pd.DataFrame(["LIVE"] * len(mutants_df), columns=["Status"])
             kill_df.index.name = "MutantNo"
 
+        print(f"Kill dataframe:\n{kill_df}")
+        print(f"Mutants dataframe:\n{mutants_df}")
+
         df = mutants_df.join(kill_df)
+        print(f"Mutants dataframe:\n{df}")
         live_mutants = df.loc[df.Status == "LIVE"]
+        print(f"Live mutants dataframe:\n{live_mutants}")
         killed_mutants = df.loc[df.index.difference(live_mutants.index)]
+        print(f"Killed mutants dataframe:\n{killed_mutants}")
         live_count = len(live_mutants)
+        print(f"Live mutants count: {live_count}")
         killed_count = len(killed_mutants)
+        print(f"Killed mutants count: {killed_count}")
         assert len(df) == live_count + killed_count
 
         MajorMutant.reset_counter()

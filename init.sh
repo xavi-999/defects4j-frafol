@@ -95,7 +95,7 @@ main() {
     # Setup Junit libs
     #
     echo
-    echo "Setting up Junit libs ... "
+    echo "Setting up Junit libs for Analyzer ... "
 
     JUNIT_VERSION="4.12"
     JUNIT_JAR="junit-$JUNIT_VERSION.jar"
@@ -128,7 +128,7 @@ main() {
     echo
     echo "Setting up Pitest ... "
 
-    PITEST_VERSION="1.19.0"
+    PITEST_VERSION="1.9.0"
 
     PITEST_JAR_DIR="$MUTOOLS/pitest-$PITEST_VERSION-jars"
     mkdir -p "$PITEST_JAR_DIR"

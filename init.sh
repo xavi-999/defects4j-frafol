@@ -97,7 +97,7 @@ main() {
     echo
     echo "Setting up Pitest ... "
 
-    PITEST_VERSION="1.6.7"
+    PITEST_VERSION="1.19.0"
 
     PITEST_JAR_DIR="$MUTOOLS/pitest-$PITEST_VERSION-jars"
     mkdir -p "$PITEST_JAR_DIR"

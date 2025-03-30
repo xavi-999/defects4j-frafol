@@ -79,6 +79,38 @@ main() {
                && perl -pi -e '$_ = qq(REFACTOR=\${REFACTOR:-"enable.decl.refactor enable.method.refactor"}\n) if /^REFACTOR=/' \
                     major/bin/major \
 
+
+    ################################################################################
+    #
+    # Setup Mutation Tools folder
+    #
+    echo
+    echo "Setting up Mutation Tools ... "
+    MUTOOLS="$BASE/mutation_tools"
+    mkdir -p $MUTOOLS
+
+
+    ################################################################################
+    #
+    # Setup PIT
+    #
+    echo
+    echo "Setting up Pitest ... "
+
+    PITEST_VERSION="1.6.7"
+
+    PITEST_JAR_DIR="$MUTOOLS/pitest-$PITEST_VERSION-jars"
+    mkdir -p "$PITEST_JAR_DIR"
+
+    PITEST="https://repo1.maven.org/maven2/org/pitest/pitest/$PITEST_VERSION/pitest-$PITEST_VERSION.jar"
+    PITEST_ENTRY="https://repo1.maven.org/maven2/org/pitest/pitest-entry/$PITEST_VERSION/pitest-entry-$PITEST_VERSION.jar"
+    PITEST_CLI="https://repo1.maven.org/maven2/org/pitest/pitest-command-line/$PITEST_VERSION/pitest-command-line-$PITEST_VERSION.jar"
+
+    cd "$PITEST_JAR_DIR" && download_url "$PITEST" \
+                        && download_url "$PITEST_ENTRY" \
+                        && download_url "$PITEST_CLI" \
+
+
     ############################################################################
     #
     # Download EvoSuite

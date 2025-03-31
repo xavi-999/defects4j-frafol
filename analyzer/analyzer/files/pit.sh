@@ -11,11 +11,13 @@ PIT_HOME="$MUTATION_TOOLS/pitest-1.9.0-jars"
 
 JUNIT="$LIB_HOME/junit-4.12.jar"
 JUNITX="$LIB_HOME/junit-addons-1.4.jar"
+JUNIT_PLATFORM="$LIB_HOME/junit-platform-console-standalone-1.9.2.jar"  # JUnit 5 Platform
 PITEST="$PIT_HOME/pitest-1.9.0.jar"
 PITEST_ENTRY="$PIT_HOME/pitest-entry-1.9.0.jar"
 PITEST_CLI="$PIT_HOME/pitest-command-line-1.9.0.jar"
+PITEST_JUNIT5="$PIT_HOME/pitest-junit5-plugin-1.1.2.jar"  # PIT JUnit 5 Plugin
 
-CP="$JUNIT:$JUNITX:$PITEST:$PITEST_ENTRY:$PITEST_CLI"
+CP="$JUNIT:$JUNITX:$JUNIT_PLATFORM:$PITEST:$PITEST_ENTRY:$PITEST_CLI:$PITEST_JUNIT5"
 
 echo "Base is           : $BASE"
 echo "Mutation tools is : $MUTATION_TOOLS"
@@ -57,4 +59,3 @@ echo "Command to run:"
 echo $CMD 
 echo
 $CMD
-

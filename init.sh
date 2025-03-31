@@ -129,10 +129,14 @@ main() {
     echo "Setting up Pitest ... "
 
     PITEST_VERSION="1.9.0"
+    PITEST_JUNIT_PLUGIN_VERSION="1.1.2"
+    JUNIT_PLATFORM_VERSION="1.9.2"
 
     PITEST_JAR_DIR="$MUTOOLS/pitest-$PITEST_VERSION-jars"
     mkdir -p "$PITEST_JAR_DIR"
 
+    JUNIT_PLATFORM="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/$JUNIT_PLATFORM_VERSION/junit-platform-console-standalone-$JUNIT_PLATFORM_VERSION.jar"
+    PITEST_JUNIT5="https://repo1.maven.org/maven2/org/pitest/pitest-junit5-plugin/$PITEST_JUNIT_PLUGIN_VERSION/pitest-junit5-plugin-$PITEST_JUNIT_PLUGIN_VERSION.jar"
     PITEST="https://repo1.maven.org/maven2/org/pitest/pitest/$PITEST_VERSION/pitest-$PITEST_VERSION.jar"
     PITEST_ENTRY="https://repo1.maven.org/maven2/org/pitest/pitest-entry/$PITEST_VERSION/pitest-entry-$PITEST_VERSION.jar"
     PITEST_CLI="https://repo1.maven.org/maven2/org/pitest/pitest-command-line/$PITEST_VERSION/pitest-command-line-$PITEST_VERSION.jar"

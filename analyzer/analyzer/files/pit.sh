@@ -7,17 +7,26 @@ BASE=$(cd $(dirname $(which defects4j))/../.. && pwd)
 
 MUTATION_TOOLS=$(cd $BASE/mutation_tools && pwd)
 LIB_HOME="$MUTATION_TOOLS/lib"
-PIT_HOME="$MUTATION_TOOLS/pitest-1.9.0-jars"
+PIT_HOME="$MUTATION_TOOLS/pitest-1.15.2-jars"
 
-JUNIT="$LIB_HOME/junit-4.12.jar"
-JUNITX="$LIB_HOME/junit-addons-1.4.jar"
-JUNIT_PLATFORM="$LIB_HOME/junit-platform-console-standalone-1.9.2.jar"  # JUnit 5 Platform
-PITEST="$PIT_HOME/pitest-1.9.0.jar"
-PITEST_ENTRY="$PIT_HOME/pitest-entry-1.9.0.jar"
-PITEST_CLI="$PIT_HOME/pitest-command-line-1.9.0.jar"
-PITEST_JUNIT5="$PIT_HOME/pitest-junit5-plugin-1.1.2.jar"  # PIT JUnit 5 Plugin
+PIT_VERSION="1.15.2"
+PITEST_JUNIT_PLUGIN_VERSION="1.2.2"
+JUNIT_JUPITER_VERSION="5.9.2"
+JUNIT_PLATFORM_VERSION="1.9.2"
 
-CP="$JUNIT:$JUNITX:$JUNIT_PLATFORM:$PITEST:$PITEST_ENTRY:$PITEST_CLI:$PITEST_JUNIT5"
+JUNIT="$PIT_HOME/junit-4.12.jar"
+JUNIT_PLATFORM="$PIT_HOME/junit-platform-console-standalone-$JUNIT_PLATFORM_VERSION.jar"  # JUnit 5 Platform
+PITEST="$PIT_HOME/pitest-$PIT_VERSION.jar"
+PITEST_ENTRY="$PIT_HOME/pitest-entry-$PIT_VERSION.jar"
+PITEST_CLI="$PIT_HOME/pitest-command-line-$PIT_VERSION.jar"
+PITEST_JUNIT5_PLUGIN="$PIT_HOME/pitest-junit5-plugin-$PITEST_JUNIT_PLUGIN_VERSION.jar"  # PIT JUnit 5 Plugin
+
+JUNIT_JUPITER_API_JAR="$PIT_HOME/junit-jupiter-api-$JUNIT_JUPITER_VERSION.jar"
+JUNIT_JUPITER_ENGINE_JAR="$PIT_HOME/junit-jupiter-engine-$JUNIT_JUPITER_VERSION.jar"
+JUNIT_VINTAGE_ENGINE_JAR="$PIT_HOME/junit-vintage-engine-$JUNIT_JUPITER_VERSION.jar"
+    
+
+CP="$JUNIT:$PITEST:$PITEST_ENTRY:$PITEST_CLI"
 
 echo "Base is           : $BASE"
 echo "Mutation tools is : $MUTATION_TOOLS"
@@ -53,7 +62,7 @@ MUTATORS=$STRONGER
 
 OUTPUT_FORMATS="--outputFormats html,xml,csv"
 
-CMD="java -cp $CP $PIT_CMD $TARGET_FLAG $REPORT $SRC $MUTATORS $OUTPUT_FORMATS $TIMESTAMPED_REPORTS"
+CMD="java -cp $CP $PIT_CMD $TARGET_FLAG $REPORT $SRC $MUTATORS $OUTPUT_FORMATS $TIMESTAMPED_REPORTS --verbose --skipFailingTests"
 
 echo "Command to run:"
 echo $CMD 

@@ -47,6 +47,9 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
 
     <!-- Dependencies used by all projects -->
     <property name="junit.jar"  value="${d4j.home}/framework/projects/lib/junit-4.12-hamcrest-1.3.jar"/>
+    <property name="junit.jupiter.api.jar" value="${d4j.home}/framework/projects/lib/junit-jupiter-api-5.8.2.jar"/>
+    <property name="junit.jupiter.engine.jar" value="${d4j.home}/framework/projects/lib/junit-jupiter-engine-5.8.2.jar"/>
+    <property name="junit.vintage.engine.jar" value="${d4j.home}/framework/projects/lib/junit-vintage-engine-5.8.2.jar"/>
     <property name="cobertura.jar" value="${d4j.home}/framework/projects/lib/cobertura-2.0.3.jar"/>
     <property name="cobertura.lib" value="${d4j.home}/framework/projects/lib/cobertura-2.0.3-lib"/>
 
@@ -148,6 +151,9 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
             <classpath>
                 <pathelement path="${formatter.jar}" />
                 <pathelement path="${junit.jar}" />
+                <pathelement path="${junit.jupiter.api.jar}" />
+                <pathelement path="${junit.jupiter.engine.jar}" />
+                <pathelement path="${junit.vintage.engine.jar}" />
                 <pathelement path="${d4j.dir.classes.testgen}" />
                 <path refid="d4j.test.classpath"/>
                 <!-- Add dependencies to runtime libraries of test generation tools -->
@@ -269,6 +275,9 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
                <compilerarg line="-Xmaxerrs 1" />
                <classpath>
                     <pathelement path="${junit.jar}" />
+                    <pathelement path="${junit.jupiter.api.jar}" />
+                    <pathelement path="${junit.jupiter.engine.jar}" />
+                    <pathelement path="${junit.vintage.engine.jar}" />
                     <path refid="d4j.test.classpath" />
                     <pathelement path="${classes.dir}" />
                     <!-- Add dependencies to runtime libraries of test generation tools -->
@@ -297,6 +306,9 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
                 <pathelement path="${d4j.dir.classes.testgen}" />
                 <pathelement path="${formatter.jar}" />
                 <pathelement path="${junit.jar}" />
+                <pathelement path="${junit.jupiter.api.jar}" />
+                <pathelement path="${junit.jupiter.engine.jar}" />
+                <pathelement path="${junit.vintage.engine.jar}" />
                 <pathelement path="${classes.dir}" />
                 <path refid="d4j.test.classpath"/>
                 <!-- Add dependencies to code coverage tools -->

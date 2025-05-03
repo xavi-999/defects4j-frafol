@@ -136,7 +136,7 @@ main() {
     JUNIT_ADDONS_JAR="junit-addons-$JUNIT_ADDONS_VERSION.jar"
     JUNIT_ADDONS_URL="https://repo1.maven.org/maven2/junit-addons/junit-addons/$JUNIT_ADDONS_VERSION/$JUNIT_ADDONS_JAR"
 
-    PITEST_VERSION="1.15.2"
+    PITEST_VERSION="1.17.0"
     PITEST_JUNIT_PLUGIN_VERSION="1.2.2"
     JUNIT_JUPITER_VERSION="5.9.2"
     JUNIT_JUPITER_API_JAR="junit-jupiter-api-$JUNIT_JUPITER_VERSION.jar"

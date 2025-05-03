@@ -7,7 +7,7 @@ BASE=$(cd $(dirname $(which defects4j))/../.. && pwd)
 
 MUTATION_TOOLS=$(cd $BASE/mutation_tools && pwd)
 LIB_HOME="$MUTATION_TOOLS/lib"
-PIT_VERSION="1.18.0"
+PIT_VERSION="1.6.7"
 PIT_HOME="$MUTATION_TOOLS/pitest-$PIT_VERSION-jars"
 
 JUNIT="$LIB_HOME/junit-4.12.jar"

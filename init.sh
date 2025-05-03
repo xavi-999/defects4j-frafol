@@ -136,20 +136,8 @@ main() {
     JUNIT_ADDONS_JAR="junit-addons-$JUNIT_ADDONS_VERSION.jar"
     JUNIT_ADDONS_URL="https://repo1.maven.org/maven2/junit-addons/junit-addons/$JUNIT_ADDONS_VERSION/$JUNIT_ADDONS_JAR"
 
-    PITEST_VERSION="1.17.0"
-    PITEST_JUNIT_PLUGIN_VERSION="1.2.2"
-    JUNIT_JUPITER_VERSION="5.9.2"
-    JUNIT_JUPITER_API_JAR="junit-jupiter-api-$JUNIT_JUPITER_VERSION.jar"
-    JUNIT_JUPITER_ENGINE_JAR="junit-jupiter-engine-$JUNIT_JUPITER_VERSION.jar"
-    JUNIT_VINTAGE_ENGINE_JAR="junit-vintage-engine-$JUNIT_JUPITER_VERSION.jar"
-    JUNIT_JUPITER_API_URL="https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/$JUNIT_JUPITER_VERSION/$JUNIT_JUPITER_API_JAR"
-    JUNIT_JUPITER_ENGINE_URL="https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-engine/$JUNIT_JUPITER_VERSION/$JUNIT_JUPITER_ENGINE_JAR"
-    JUNIT_VINTAGE_ENGINE_URL="https://repo1.maven.org/maven2/org/junit/vintage/junit-vintage-engine/$JUNIT_JUPITER_VERSION/$JUNIT_VINTAGE_ENGINE_JAR"
+    PITEST_VERSION="1.18.0"
 
-    JUNIT_PLATFORM_VERSION="1.9.2"
-
-    JUNIT_PLATFORM="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/$JUNIT_PLATFORM_VERSION/junit-platform-console-standalone-$JUNIT_PLATFORM_VERSION.jar"
-    PITEST_JUNIT5="https://repo1.maven.org/maven2/org/pitest/pitest-junit5-plugin/$PITEST_JUNIT_PLUGIN_VERSION/pitest-junit5-plugin-$PITEST_JUNIT_PLUGIN_VERSION.jar"
     PITEST="https://repo1.maven.org/maven2/org/pitest/pitest/$PITEST_VERSION/pitest-$PITEST_VERSION.jar"
     PITEST_ENTRY="https://repo1.maven.org/maven2/org/pitest/pitest-entry/$PITEST_VERSION/pitest-entry-$PITEST_VERSION.jar"
     PITEST_CLI="https://repo1.maven.org/maven2/org/pitest/pitest-command-line/$PITEST_VERSION/pitest-command-line-$PITEST_VERSION.jar"
@@ -161,11 +149,6 @@ main() {
     cd "$PITEST_JAR_DIR" && download_url "$PITEST" \
                         && download_url "$PITEST_ENTRY" \
                         && download_url "$PITEST_CLI" \
-                        && download_url "$PITEST_JUNIT5" \
-                        && download_url "$JUNIT_PLATFORM" \
-                        && download_url "$JUNIT_JUPITER_API_URL" \
-                        && download_url "$JUNIT_JUPITER_ENGINE_URL" \
-                        && download_url "$JUNIT_VINTAGE_ENGINE_URL" \
                         && download_url "$JUNIT_URL" \
                         && download_url "$JUNIT_ADDONS_URL" \
 

@@ -52,7 +52,7 @@ MUTATORS=$STRONGER
 
 OUTPUT_FORMATS="--outputFormats html,xml,csv"
 
-CMD="java -cp $CP $PIT_CMD $TARGET_FLAG $REPORT $SRC $MUTATORS $OUTPUT_FORMATS $TIMESTAMPED_REPORTS --testPlugin junit4"
+CMD="java -cp $CP $PIT_CMD $TARGET_FLAG $REPORT $SRC $MUTATORS $OUTPUT_FORMATS $TIMESTAMPED_REPORTS --testPlugin junit4 --verbose"
 
 echo "Command to run:"
 echo $CMD 

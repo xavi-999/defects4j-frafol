@@ -378,25 +378,6 @@ public class {classname} extends TestCase {{
 
             self._run_tool(tool, **kwargs)
     
-    def get_coverage(
-            self, **kwargs
-    ):
-        try:
-            """Get the coverage of the current testsuite"""
-            logger.info("Executing get_coverage...")
-            self.set_testsuite(**kwargs)
-
-            # clean and compile the testsuite again
-            self.clean()
-            self.d4j_compile(**kwargs)
-
-            # run coverage tool
-            self.d4j_coverage(**kwargs)
-            logger.info("Coverage executed")
-        except Exception as e:
-            logger.error(f"Error during coverage execution: {e}")
-            raise
-
     def get_mutants(
         self, tools_list: Union[tools.Tool, Sequence[tools.Tool]] = None, **kwargs
     ):

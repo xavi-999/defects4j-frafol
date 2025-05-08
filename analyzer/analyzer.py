@@ -36,7 +36,7 @@ def main():
     test_environment()
 
     # define actions and sort them automatically
-    actions = ("backup", "restore", "mutants", "run", "coverage", "set_test_suite")
+    actions = ("backup", "restore", "mutants", "run", "set_test_suite")
     actions = sorted(actions)
 
     # create argument parser
@@ -129,8 +129,6 @@ def main():
         project.restore_tests()
     elif action == "run":
         project.run_tools(tools, **kwargs)
-    elif action == "coverage":
-        project.get_coverage(tools, **kwargs)
     elif action == "set_test_suite":
         project.set_testsuite(**kwargs)
     else:

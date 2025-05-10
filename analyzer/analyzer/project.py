@@ -377,7 +377,7 @@ public class {classname} extends TestCase {{
                 )
 
             self._run_tool(tool, **kwargs)
-
+    
     def get_mutants(
         self, tools_list: Union[tools.Tool, Sequence[tools.Tool]] = None, **kwargs
     ):

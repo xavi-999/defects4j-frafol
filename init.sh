@@ -128,18 +128,29 @@ main() {
     echo
     echo "Setting up Pitest ... "
 
-    PITEST_VERSION="1.9.0"
+    JUNIT_VERSION="4.12"
+    JUNIT_JAR="junit-$JUNIT_VERSION.jar"
+    JUNIT_URL="https://repo1.maven.org/maven2/junit/junit/$JUNIT_VERSION/$JUNIT_JAR"
 
-    PITEST_JAR_DIR="$MUTOOLS/pitest-$PITEST_VERSION-jars"
-    mkdir -p "$PITEST_JAR_DIR"
+    JUNIT_ADDONS_VERSION="1.4"
+    JUNIT_ADDONS_JAR="junit-addons-$JUNIT_ADDONS_VERSION.jar"
+    JUNIT_ADDONS_URL="https://repo1.maven.org/maven2/junit-addons/junit-addons/$JUNIT_ADDONS_VERSION/$JUNIT_ADDONS_JAR"
+
+    PITEST_VERSION="1.9.0"
 
     PITEST="https://repo1.maven.org/maven2/org/pitest/pitest/$PITEST_VERSION/pitest-$PITEST_VERSION.jar"
     PITEST_ENTRY="https://repo1.maven.org/maven2/org/pitest/pitest-entry/$PITEST_VERSION/pitest-entry-$PITEST_VERSION.jar"
     PITEST_CLI="https://repo1.maven.org/maven2/org/pitest/pitest-command-line/$PITEST_VERSION/pitest-command-line-$PITEST_VERSION.jar"
 
+    PITEST_JAR_DIR="$MUTOOLS/pitest-$PITEST_VERSION-jars"
+    mkdir -p "$PITEST_JAR_DIR"
+
+
     cd "$PITEST_JAR_DIR" && download_url "$PITEST" \
                         && download_url "$PITEST_ENTRY" \
                         && download_url "$PITEST_CLI" \
+                        && download_url "$JUNIT_URL" \
+                        && download_url "$JUNIT_ADDONS_URL" \
 
 
     ############################################################################
